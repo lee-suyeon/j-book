@@ -32,7 +32,13 @@ const App = () => {
       plugins: [unpkgPathPlugin(), fetchPlugin(input)]
     });
 
-   setCode(result.outputFiles[0].text);
+    setCode(result.outputFiles[0].text);
+
+    try {
+      eval(result.outputFiles[0].text);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (

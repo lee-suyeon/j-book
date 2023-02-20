@@ -1,3 +1,4 @@
+import 'bulmaswatch/darkly/bulmaswatch.min.css';
 import * as esbuild from 'esbuild-wasm';
 import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
@@ -69,7 +70,7 @@ const App = () => {
   return (
     <div>
       <CodeEditor 
-        initialValue="const a = 1;"
+        value={input}
         onChange={(value) => setInput(value)}
       />
       <textarea

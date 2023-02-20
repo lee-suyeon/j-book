@@ -1,6 +1,10 @@
+import './code-editor.css';
+import './syntax.css';
 import MonacoEditor from '@monaco-editor/react';
 import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
+import codeShift from 'jscodeshift';
+import Hightlighter from 'monaco-jsx-highlighter';
 
 interface CodeEditorProps {
   value: string;
@@ -19,13 +23,20 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ value, onChange }) => {
       useTabs: false,
       semi: true,
       singleQuote: true,
-    });
+    })
+    // .replace(/\n$/, '');
+
     onChange(formatted);
   }
 
   return (
-    <div>
-      <button onClick={onFormatClick}>Format</button>
+    <div className="editor-wrapper">
+      <button 
+        className="button button-format is-primary is-small" 
+        onClick={onFormatClick}
+      >
+        Format
+      </button>
       <MonacoEditor
         onChange={onEditorChange}
         defaultValue=""

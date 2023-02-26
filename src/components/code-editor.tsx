@@ -23,8 +23,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ value, onChange }) => {
       useTabs: false,
       semi: true,
       singleQuote: true,
-    })
-    // .replace(/\n$/, '');
+    }).replace(/\n$/, '');
 
     onChange(formatted);
   }
@@ -42,7 +41,6 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ value, onChange }) => {
         defaultValue=""
         value={value}
         theme="vs-dark"
-        height="500px"
         language="javascript"
         options={{
           wordWrap: "on",
